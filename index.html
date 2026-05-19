@@ -7,7 +7,7 @@
 <title>Кино каталог</title>
 <meta property="og:title" content="Кино каталог">
 <meta property="og:description" content="Онлайн кино каталог — шууд авах боломжтой">
-<meta property="og:image" content="movie1.jpg">
+<meta property="og:image" content="чөлөөт ярилцлага.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -476,6 +476,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 </div>
 
 <script>
+const IMAGES={1:"чөлөөт ярилцлага.jpg",2:"номын санч.jpg",3:"өндер эмэтэй.jpg",4:"тосгоны охинтой учирсан нь.jpg",5:"хойд ээж.jpg",6:"эмч бусгүй.jpg",7:"гудамжинд таарсан эмэтэй.jpg",8:"эхнэрийн эмч найз.jpg",9:"гадуурхагдсан эмэгтэй.jpg",10:"босс эмэгтэй.jpg"};
 const MOVIES=[
   {id:1,name:'Чөлөөт Ярилцлага',price:'₮5,100',desc:'Чөлөөт ярилцлагын аянд хайр, хувь тавилан хоёрлоно. Сэтгэл хөдөлгөм кино.'},
   {id:2,name:'Номын Санч',price:'₮5,100',desc:'Номын дунд ургасан хайрын үлгэр.'},
@@ -491,13 +492,13 @@ const MOVIES=[
 
 let cur='s-catalog', movie=null;
 
-// Hero зураг — movie1.jpg эсвэл random
+// Hero зураг — чөлөөт ярилцлага.jpg эсвэл random
 function loadHero(){
   const pick=MOVIES[Math.floor(Math.random()*MOVIES.length)];
   const hero=document.getElementById('heroEl');
   const img=new Image();
   img.onload=()=>{
-    hero.innerHTML=`<img class="cat-hero-img" src="movie${pick.id}.jpg" alt="${pick.name}">
+    hero.innerHTML=`<img class="cat-hero-img" src="${IMAGES[pick.id]}" alt="${pick.name}">
       <div class="cat-hero-overlay"></div>
       <div class="cat-hero-text">
         <h1 class="cat-hero-title">Кино каталог</h1>
@@ -507,7 +508,7 @@ function loadHero(){
   img.onerror=()=>{
     // Зураг байхгүй бол placeholder
   };
-  img.src=`movie${pick.id}.jpg`;
+  img.src=IMAGES[pick.id];
 }
 
 function go(id){
@@ -527,7 +528,7 @@ function renderCat(){
   document.getElementById('catGrid').innerHTML=MOVIES.map(m=>`
     <div class="movie-card" onclick="openBuy(${m.id})">
       <div class="poster-wrap">
-        <img src="movie${m.id}.jpg" alt="${m.name}"
+        <img src="${IMAGES[m.id]}" alt="${m.name}"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="poster-ph" style="display:none">
           <span class="poster-ph-icon">🎬</span>
@@ -550,7 +551,7 @@ function openBuy(id){
   document.getElementById('buyAmt').textContent=movie.price;
   document.getElementById('buyPriceTag').textContent=movie.price;
   document.getElementById('buyPosterEl').innerHTML=
-    `<img src="movie${id}.jpg" alt="${movie.name}"
+    `<img src="${IMAGES[id]}" alt="${movie.name}"
       onerror="this.parentElement.innerHTML='<div class=\\'buy-ph\\'><span class=\\'buy-ph-icon\\'>🎬</span><span class=\\'buy-ph-name\\'>${movie.name}</span></div>'">`;
   document.getElementById('buyName').value='';
   document.getElementById('buyConfirm').disabled=true;

@@ -124,8 +124,16 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
 .bl{color:var(--muted);font-size:12px;}
 .bv{font-weight:500;color:var(--text);}
 .bv.pu{color:var(--purple);font-size:16px;font-weight:700;}
-.inline-copy-btn{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:var(--purple-light);border:1px solid var(--purple-mid);border-radius:6px;color:var(--purple);font-size:11px;font-weight:500;font-family:'Times New Roman',Times,serif;cursor:pointer;transition:all .18s;}
-.inline-copy-btn:hover,.inline-copy-btn.ok{background:var(--purple);color:#fff;}
+.inline-copy-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  flex-shrink:0;height:36px;padding:0 14px;
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  border:none;border-radius:8px;color:#fff;
+  font-size:13px;font-weight:700;
+  font-family:'Times New Roman',Times,serif;
+  cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.inline-copy-btn:hover,.inline-copy-btn.ok{opacity:.85;}
 
 .paid-btn{width:100%;padding:16px;background:linear-gradient(135deg,var(--green),#059669);border:none;border-radius:12px;color:#fff;font-size:16px;font-weight:500;font-family:'Times New Roman',Times,serif;cursor:pointer;margin-bottom:20px;box-shadow:0 6px 20px rgba(16,185,129,.4);}
 .paid-btn:hover{opacity:.88;}
@@ -175,6 +183,34 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
 }
 .vip-promo-full-btn:hover{opacity:.9;transform:translateY(-2px);}
 .vip-promo-card{background:linear-gradient(135deg,#0d2a6e,#071840);border:2px solid #1a6ef5;}
+
+/* УТГА INLINE ROW */
+.utga-inline-row{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(0,0,0,.25);border:1.5px solid var(--green-mid);
+  border-radius:10px;padding:11px 14px;margin-bottom:12px;
+  flex-wrap:wrap;
+}
+.utga-inline-val{
+  flex:1;font-size:15px;font-weight:500;color:#fff;
+  word-break:break-all;line-height:1.4;min-width:0;
+}
+.utga-inline-copy{
+  flex-shrink:0;height:36px;padding:0 14px;
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  border:none;border-radius:8px;color:#fff;
+  font-size:13px;font-weight:700;
+  font-family:'Times New Roman',Times,serif;
+  cursor:pointer;transition:all .2s;white-space:nowrap;
+  box-shadow:0 2px 10px rgba(139,92,246,.4);
+}
+.utga-inline-copy:hover{opacity:.85;}
+.utga-inline-copy.ok{background:var(--green);}
+.bank-hd-big{
+  background:var(--purple-light);padding:13px 16px;
+  border-bottom:1px solid var(--purple-mid);
+  font-size:15px;font-weight:700;color:#fff;
+}
 </style>
 </head>
 <body>
@@ -229,19 +265,19 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
       </div>
 
       <div class="utga-sec" id="buyUtgaSec">
-        <div class="utga-box">
-          <p class="utga-lbl">Гүйлгээний утга</p>
-          <div class="utga-val" id="buyUtgaVal"></div>
-          <button class="cpbtn" id="buyUtgaBtn" onclick="cpEl('buyUtgaVal','buyUtgaBtn','buyUtgaTxt','buyUtgaIcon')">
-            <span id="buyUtgaIcon">📋</span><span id="buyUtgaTxt">Гүйлгээний утга хуулах</span>
-          </button>
+        <div style="margin-bottom:12px;">
+          <p class="utga-lbl" style="margin-bottom:6px;">Гүйлгээний утга</p>
+          <div class="utga-inline-row">
+            <span class="utga-inline-val" id="buyUtgaVal"></span>
+            <button class="utga-inline-copy" id="buyUtgaBtn" onclick="cpEl('buyUtgaVal','buyUtgaBtn','buyUtgaTxt','buyUtgaIcon')">
+              <span id="buyUtgaIcon">📋</span> <span id="buyUtgaTxt">Хуулах</span>
+            </button>
+          </div>
         </div>
         <div class="bank-box">
-          <div class="bank-hd">💳 Дараах дансанд шилжүүлнэ үү</div>
+          <div class="bank-hd-big">💳 Дараах дансанд шилжүүлнэ үү — ХААН БАНК</div>
           <div class="bank-rows">
-            <div class="bank-row">
-              <span class="bl">Банк</span><span class="bv">Хаан банк</span>
-            </div>
+
             <div class="bank-row">
               <span class="bl">Дансны дугаар</span>
               <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
@@ -323,19 +359,19 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
     </div>
 
     <div class="utga-sec" id="vipUtgaSec">
-      <div class="utga-box">
-        <p class="utga-lbl">Гүйлгээний утга</p>
-        <div class="utga-val" id="vipUtgaVal"></div>
-        <button class="cpbtn" id="vipUtgaBtn" onclick="cpEl('vipUtgaVal','vipUtgaBtn','vipUtgaTxt','vipUtgaIcon')">
-          <span id="vipUtgaIcon">📋</span><span id="vipUtgaTxt">Гүйлгээний утга хуулах</span>
-        </button>
+      <div style="margin-bottom:12px;">
+        <p class="utga-lbl" style="margin-bottom:6px;">Гүйлгээний утга</p>
+        <div class="utga-inline-row">
+          <span class="utga-inline-val" id="vipUtgaVal"></span>
+          <button class="utga-inline-copy" id="vipUtgaBtn" onclick="cpEl('vipUtgaVal','vipUtgaBtn','vipUtgaTxt','vipUtgaIcon')">
+            <span id="vipUtgaIcon">📋</span> <span id="vipUtgaTxt">Хуулах</span>
+          </button>
+        </div>
       </div>
       <div class="bank-box">
-        <div class="bank-hd">💳 Дараах дансанд шилжүүлнэ үү</div>
+        <div class="bank-hd-big">💳 Дараах дансанд шилжүүлнэ үү — ХААН БАНК</div>
         <div class="bank-rows">
-          <div class="bank-row">
-            <span class="bl">Банк</span><span class="bv">Хаан банк</span>
-          </div>
+
           <div class="bank-row">
             <span class="bl">Дансны дугаар</span>
             <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">

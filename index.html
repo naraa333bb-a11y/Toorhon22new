@@ -39,7 +39,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
 
 /* VIP PROMO */
 .vip-promo-wrap{padding:14px 16px 0;}
-.vip-promo-card{background:linear-gradient(135deg,#0d2a6e,#071840);border:2px solid #1a6ef5;border-radius:16px;padding:28px 20px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:box-shadow .2s,transform .15s;overflow:hidden;position:relative;min-height:130px;}
+.vip-promo-card{background:var(--purple);border:2px solid var(--purple-mid);border-radius:16px;padding:28px 20px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:box-shadow .2s,transform .15s;overflow:hidden;position:relative;min-height:130px;}
 .vip-promo-card:hover{box-shadow:0 8px 28px rgba(139,92,246,.35);transform:translateY(-2px);}
 .vip-promo-left{flex:1;}
 .vip-promo-tag{display:inline-block;font-size:9px;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border-radius:100px;padding:2px 10px;margin-bottom:8px;}
@@ -64,7 +64,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
 .poster-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:linear-gradient(160deg,#1a1228,#0d1a2a);}
 .poster-ph-icon{font-size:28px;opacity:.4;}
 .poster-ph-name{font-size:11px;color:var(--purple);text-align:center;padding:0 8px;line-height:1.4;}
-.b-price{position:absolute;top:8px;right:8px;background:var(--purple);color:#fff;font-size:10px;font-weight:500;padding:3px 9px;border-radius:100px;}
+.b-price{position:absolute;top:8px;right:8px;background:var(--purple);color:#fff;font-size:13px;font-weight:700;padding:4px 11px;border-radius:100px;}
 .card-info{padding:10px 12px;pointer-events:none;}
 .card-name{font-size:12px;font-weight:500;color:var(--text);margin-bottom:8px;line-height:1.3;}
 .card-btn{width:100%;padding:12px;background:var(--purple);border:none;border-radius:8px;color:#fff;font-size:15px;font-weight:700;font-family:'Times New Roman',Times,serif;cursor:pointer;}
@@ -116,8 +116,8 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
 .cpbtn.ok{background:#059669;}
 
 /* BANK */
-.bank-box{background:var(--card);border:2px solid var(--purple-mid);border-radius:14px;overflow:hidden;margin-bottom:14px;}
-.bank-hd{background:var(--purple-light);padding:12px 16px;border-bottom:1px solid var(--purple-mid);font-size:12px;font-weight:500;color:var(--purple);}
+.bank-box{background:var(--card);border:2px solid var(--green-mid);border-radius:14px;overflow:hidden;margin-bottom:14px;}
+.bank-hd{background:var(--green-light);padding:12px 16px;border-bottom:1px solid var(--green-mid);font-size:15px;font-weight:600;color:var(--green-mid);}
 .bank-rows{padding:12px 16px;}
 .bank-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;flex-wrap:wrap;gap:6px;}
 .bank-row:last-child{border:none;}
@@ -182,7 +182,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
   transition:opacity .2s,transform .15s;
 }
 .vip-promo-full-btn:hover{opacity:.9;transform:translateY(-2px);}
-.vip-promo-card{background:linear-gradient(135deg,#0d2a6e,#071840);border:2px solid #1a6ef5;}
+.vip-promo-card{background:var(--purple);border:2px solid var(--purple-mid);}
 
 /* УТГА INLINE ROW */
 .utga-inline-row{
@@ -289,7 +289,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
             </div>
           </div>
         </div>
-        <button class="paid-btn" onclick="go('s-thanks')">✓ Төлбөр төлсөн</button>
+        <a class="paid-btn" href="https://m.me/963575403514027" target="_blank" style="display:block;text-align:center;text-decoration:none;">ТӨЛБӨР ТӨЛСӨН МЭДЭЭЛЭЛЭЭ ИЛГЭЭНЭ ҮҮ.</a>
       </div>
 
       <div style="height:1px;background:var(--border);margin:0 0 16px"></div>
@@ -300,37 +300,6 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- БАЯРЛАЛАА -->
-<div class="screen" id="s-thanks">
-  <div class="topbar">
-    <button class="back-btn" onclick="go('s-catalog')">&#8592;</button>
-    <span class="topbar-title">Баярлалаа</span>
-  </div>
-  <div class="thanks-body">
-    <div class="thanks-icon">✅</div>
-    <h2 class="thanks-t">Төлбөр хүлээн авлаа!</h2>
-    <div class="thanks-step-box">
-      <div class="thanks-step">
-        <div class="thanks-step-num">1</div>
-        <div class="thanks-step-text">
-          <strong>Доорх товч дарж манай Facebook чатаар төлбөр төлсөн тухай мэдэгдэнэ үү</strong>
-        </div>
-      </div>
-      <div class="thanks-step">
-        <div class="thanks-step-num">2</div>
-        <div class="thanks-step-text">
-          <strong>10 минутын дотор захиалга баталгаажна</strong>
-          <span>Кино линк эсвэл группын нэвтрэх эрх танд шууд ирнэ</span>
-        </div>
-      </div>
-    </div>
-    <a class="thanks-fb-btn" href="https://www.facebook.com/profile.php?id=61588227375504" target="_blank">
-      <span>💬</span><span>Facebook чатад мессеж илгээх</span><span>→</span>
-    </a>
-    <button class="thanks-back" onclick="go('s-catalog')">← Нүүр хуудас руу буцах</button>
   </div>
 </div>
 
@@ -383,7 +352,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
           </div>
         </div>
       </div>
-      <button class="paid-btn" onclick="go('s-thanks')">✓ Төлбөр төлсөн</button>
+      <a class="paid-btn" href="https://m.me/963575403514027" target="_blank" style="display:block;text-align:center;text-decoration:none;">ТӨЛБӨР ТӨЛСӨН МЭДЭЭЛЭЛЭЭ ИЛГЭЭНЭ ҮҮ.</a>
     </div>
   </div>
 </div>
@@ -402,6 +371,12 @@ const IMAGES={
   10:"босс эмэгтэй.jpg"
 };
 
+const VIDEOS={
+  1:"video1.mp4", 2:"video2.mp4", 3:"video3.mp4",
+  4:"video4.mp4", 5:"video5.mp4", 6:"video6.mp4",
+  7:"video7.mp4", 8:"video8.mp4", 9:"video9.mp4",
+  10:"video10.mp4"
+};
 const MOVIES=[
   {id:1,name:"Чөлөөт Ярилцлага",price:"5,100 ₮",desc:"Чөлөөт ярилцлагын аянд хайр, хувь тавилан хоёрлоно."},
   {id:2,name:"Номын Санч",price:"5,100 ₮",desc:"Номын дунд ургасан хайрын үлгэр."},
@@ -463,9 +438,12 @@ function openBuy(id){
   document.getElementById('buyTitleEl').textContent=movie.name;
   document.getElementById('buyDescEl').textContent=movie.desc;
   document.getElementById('buyPriceTag').textContent=movie.price;
+  const vid=VIDEOS[id];
   document.getElementById('buyPosterEl').innerHTML=
-    `<img src="${IMAGES[id]}" alt="${movie.name}"
-      onerror="this.parentElement.innerHTML='<div class=buy-ph><span class=buy-ph-icon>🎬</span><span class=buy-ph-name>${movie.name}</span></div>'">`;
+    `<video style="width:100%;height:300px;object-fit:cover;display:block;" autoplay muted loop playsinline
+       onerror="this.parentElement.innerHTML='<img src=${IMAGES[id]} alt=${movie.name} style=width:100%;height:300px;object-fit:cover>'">
+       <source src="${vid}" type="video/mp4">
+     </video>`;
   document.getElementById('buyName').value='';
   document.getElementById('buyConfirm').classList.remove('inp-confirm-active');
   document.getElementById('buyUtgaSec').classList.remove('on');

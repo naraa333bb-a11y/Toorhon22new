@@ -211,6 +211,27 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
   border-bottom:1px solid var(--purple-mid);
   font-size:15px;font-weight:700;color:#fff;
 }
+
+/* 18+ BADGE */
+.badge-18{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:74px;height:74px;
+  background:radial-gradient(circle,#ff3b3b,#c0000a);
+  border:3px solid #fff;
+  border-radius:50%;
+  font-size:22px;font-weight:900;color:#fff;
+  font-family:'Times New Roman',Times,serif;
+  letter-spacing:-.5px;
+  box-shadow:0 4px 16px rgba(239,68,68,.7),0 0 0 2px rgba(255,255,255,.3);
+  flex-shrink:0;
+  transform:rotate(-10deg);
+  animation:wobble 2.5s ease-in-out infinite;
+}
+.badge-18::before{content:'18+';}
+@keyframes wobble{
+  0%,100%{transform:rotate(-10deg) scale(1);}
+  50%{transform:rotate(-10deg) scale(1.1);}
+}
 </style>
 </head>
 <body>
@@ -221,7 +242,10 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Times 
     <div class="cat-hero-ph">🎬</div>
     <div class="cat-hero-overlay"></div>
     <div class="cat-hero-text">
-      <h1 class="cat-hero-title">Кино каталог</h1>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px;">
+        <h1 class="cat-hero-title" style="margin-bottom:0;">Кино каталог</h1>
+        <span class="badge-18"></span>
+      </div>
       <p class="cat-hero-sub">Кино сонгоод шууд авах боломжтой</p>
     </div>
   </div>
@@ -372,10 +396,16 @@ const IMAGES={
 };
 
 const VIDEOS={
-  1:"video1.mp4", 2:"video2.mp4", 3:"video3.mp4",
-  4:"video4.mp4", 5:"video5.mp4", 6:"video6.mp4",
-  7:"video7.mp4", 8:"video8.mp4", 9:"video9.mp4",
-  10:"video10.mp4"
+  1:"https://drive.google.com/file/d/1kxVHMpM4qYa6Jh-wvIeZwo5jsHfmUCKC/preview",
+  2:"https://drive.google.com/file/d/1vnUTla4QirK5kCcLh6GfuMAirOc0e7Z6/preview",
+  3:"https://drive.google.com/file/d/1lBuDY2ZUhOIlHrN0tOl4h3IsquKgMn4z/preview",
+  4:"https://drive.google.com/file/d/1e_CQIucgDTtPRdcgYBnxDM_jC0smmCIw/preview",
+  5:"https://drive.google.com/file/d/1Ng43YqgxaqvWUAlJYugt8UOfBoA1wpqd/preview",
+  6:"https://drive.google.com/file/d/1CoRvrnfYY3Bp7kvoaQ3L7MOBnVXmWemz/preview",
+  7:"https://drive.google.com/file/d/1oxjhmsOrvJKqJxh7HmcIYPNCW7sgaDC-/preview",
+  8:"https://drive.google.com/file/d/1bAFIV0e1T16kCU4lFJpS8kEbuSl1b0mC/preview",
+  9:"https://drive.google.com/file/d/18Hi3_qrVZXqdpHEFH0n_n3FiW-KPa_y7/preview",
+  10:"https://drive.google.com/file/d/14ckT40h5LdxAyYCw1Y4K3h5Oa1q2xHbO/preview"
 };
 const MOVIES=[
   {id:1,name:"Чөлөөт Ярилцлага",price:"5,100 ₮",desc:"Чөлөөт ярилцлагын аянд хайр, хувь тавилан хоёрлоно."},
@@ -425,7 +455,10 @@ function loadHero(){
       `<img class="cat-hero-img" src="${IMAGES[pick.id]}" alt="${pick.name}">
        <div class="cat-hero-overlay"></div>
        <div class="cat-hero-text">
-         <h1 class="cat-hero-title">Кино каталог</h1>
+         <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px;">
+           <h1 class="cat-hero-title" style="margin-bottom:0;">Кино каталог</h1>
+           <span class="badge-18"></span>
+         </div>
          <p class="cat-hero-sub">Кино сонгоод шууд авах боломжтой</p>
        </div>`;
   };
@@ -440,10 +473,11 @@ function openBuy(id){
   document.getElementById('buyPriceTag').textContent=movie.price;
   const vid=VIDEOS[id];
   document.getElementById('buyPosterEl').innerHTML=
-    `<video style="width:100%;height:300px;object-fit:cover;display:block;" autoplay muted loop playsinline
-       onerror="this.parentElement.innerHTML='<img src=${IMAGES[id]} alt=${movie.name} style=width:100%;height:300px;object-fit:cover>'">
-       <source src="${vid}" type="video/mp4">
-     </video>`;
+    `<iframe src="${vid}"
+       style="width:100%;height:300px;border:none;display:block;"
+       allow="autoplay"
+       allowfullscreen>
+     </iframe>`;
   document.getElementById('buyName').value='';
   document.getElementById('buyConfirm').classList.remove('inp-confirm-active');
   document.getElementById('buyUtgaSec').classList.remove('on');
